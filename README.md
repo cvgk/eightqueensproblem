@@ -1,5 +1,4 @@
 # eightqueensproblem
-eight queen problem is solved by breadth first search algorithm and depth first search algorithm
 I created a game application ,using javascript,html and css code.First of all there is a table in my code and it represents a chessboard.
 There are eight div objects in my code and they represent eight queens.
 Eight queens shapes are circle and coloured yellow.
