@@ -1,0 +1,1288 @@
+<! DOCTYPE html>
+<html>
+  <head>
+     <meta charset="UTF-8"/>
+     <title>Eight Queens Problem with html,css and javascript</title>
+     <style>
+        table {
+          border:10px solid black;
+          background-color: red;
+          border-collapse: collapse;
+          position: relative;
+          left:400px;
+        }
+        td {
+          width:60px;
+          height:60px;
+          border:1px solid black;
+        }
+        tr:nth-child(even)>td:nth-child(even){
+          background-color:green;  
+        }
+        tr:nth-child(odd)>td:nth-child(odd)
+        {
+          background-color: green;
+        }
+        .herkul{
+          background-color: yellow;
+          width:25px;
+          height:25px;
+          border-radius: 100%;
+          display: inline-block;
+          padding:10px;
+          margin:5px;
+          border:2px solid black;
+          text-align: center;
+          cursor: move;
+          
+        }
+        #general {
+          position:relative;
+          left: 400px;
+        }
+     </style>
+     <script>
+         function method1(event)
+         {
+             event.dataTransfer.dropEffect = "move";
+             event.dataTransfer.setData("text",event.target.getAttribute('id'));
+         }
+         function method2(event)
+         {
+           event.preventDefault();
+           var bool=convert(event.target.getAttribute('id'));
+           if(bool==false){
+            var elem = event.dataTransfer.getData("text");
+            var x = document.getElementById(elem);
+            event.target.appendChild(x);
+            method3(event.target.getAttribute('id'));
+            var num=countDivElements();
+            if(num==8) {
+              alert("congrutulations.");
+            }
+           }else{
+            alert("you can not insert into this square!");
+           }
+         }
+         
+         function countDivElements(){
+           var localarray = document.getElementsByClassName("b");
+           var count = 0; 
+           for(var i=0;i<localarray.length;i++) {
+            if(localarray[i].children[0] instanceof HTMLDivElement){
+             count++;
+            }
+            
+           }
+           return count;
+         
+         }
+         var array =[[false,false,false,false,false,false,false,false],
+         [false,false,false,false,false,false,false,false],[false,false,false,false,false,false,false,false],
+         [false,false,false,false,false,false,false,false],[false,false,false,false,false,false,false,false],
+         [false,false,false,false,false,false,false,false],[false,false,false,false,false,false,false,false],
+         [false,false,false,false,false,false,false,false]];
+         function convert(s) {
+           if(s=='a1'){
+             return array[0][0];
+           }
+           if(s=='a2') {
+             return array[0][1];
+           }
+           if(s=='a3') {
+             return array[0][2];
+           }
+           if(s=='a4') {
+             return array[0][3];
+           }
+           if(s=='a5') {
+             return array[0][4];
+           }
+           if(s=='a6') {
+             return array[0][5];
+           }
+           if(s=='a7') {
+             return array[0][6];
+           }
+           if(s=='a8'){
+             return array[0][7];
+           }
+           if(s=='b1'){
+             return array[1][0];
+           }
+           if(s=='b2'){
+             return array[1][1];
+           }
+           if(s=='b3'){
+             return array[1][2];
+           }
+           if(s=='b4'){
+             return array[1][3];
+           }
+           if(s=='b5'){
+             return array[1][4];
+           }
+           if(s=='b6'){
+             return array[1][5];
+           }
+           if(s=='b7'){
+             return array[1][6];
+           }
+           if(s=='b8'){
+             return array[1][7];
+           }
+           if(s=='c1'){
+             return array[2][0];
+           }
+           if(s=='c2'){
+             return array[2][1];
+           }
+           if(s=='c3'){
+             return array[2][2];
+           }
+           if(s=='c4'){
+             return array[2][3];
+           }
+           if(s=='c5'){
+             return array[2][4];
+           }
+           if(s=='c6'){
+             return array[2][5];
+           }
+           if(s=='c7'){
+             return array[2][6];
+           }
+           if(s=='c8'){
+             return array[2][7];
+           }
+           if(s=='d1'){
+             return array[3][0];
+           }
+           if(s=='d2'){
+             return array[3][1];
+           }
+           if(s=='d3'){
+             return array[3][2];
+           }
+           if(s=='d4'){
+             return array[3][3];
+           }
+           if(s=='d5'){
+             return array[3][4];
+           }
+           if(s=='d6'){
+             return array[3][5];
+           }
+           if(s=='d7'){
+             return array[3][6];
+           }
+           if(s=='d8'){
+             return array[3][7];
+           }
+           if(s=='e1'){
+             return array[4][0];
+           }
+           if(s=='e2'){
+             return array[4][1];
+           }
+           if(s=='e3'){
+             return array[4][2];
+           }
+           if(s=='e4'){
+             return array[4][3];
+           }
+           if(s=='e5'){
+             return array[4][4];
+           }
+           if(s=='e6'){
+             return array[4][5];
+           }
+           if(s=='e7'){
+             return array[4][6];
+           }
+           if(s=='e8'){
+             return array[4][7];
+           }
+           if(s=='f1'){
+             return array[5][0];
+           }
+           if(s=='f2'){
+             return array[5][1];
+           }
+           if(s=='f3'){
+             return array[5][2];
+           }
+           if(s=='f4'){
+             return array[5][3];
+           }
+           if(s=='f5'){
+             return array[5][4];
+           }
+           if(s=='f6'){
+             return array[5][5];
+           }
+           if(s=='f7'){
+             return array[5][6];
+           }
+           if(s=='f8'){
+             return array[5][7];
+           }
+           if(s=='g1'){
+             return array[6][0];
+           }
+           if(s=='g2'){
+             return array[6][1];
+           }
+           if(s=='g3'){
+             return array[6][2];
+           }
+           if(s=='g4'){
+             return array[6][3];
+           }
+           if(s=='g5'){
+             return array[6][4];
+           }
+           if(s=='g6'){
+             return array[6][5];
+           }
+           if(s=='g7'){
+             return array[6][6];
+           }
+           if(s=='g8'){
+             return array[6][7];
+           }
+           if(s=='h1'){
+             return array[7][0];
+           }
+           if(s=='h2'){
+             return array[7][1];
+           }
+           if(s=='h3'){
+             return array[7][2];
+           }
+           if(s=='h4'){
+             return array[7][3];
+           }
+           if(s=='h5'){
+             return array[7][4];
+           }
+           if(s=='h6'){
+             return array[7][5];
+           }
+           if(s=='h7'){
+             return array[7][6];
+           }
+           if(s=='h8'){
+             return array[7][7];
+           }
+         }
+         function method3(s)
+         {
+           if(s=='a1')
+           {
+            array[0][0] = true;           array[1][0] = true;
+            array[0][1] = true;           array[2][0] = true;
+            array[0][2] = true;           array[3][0] = true;
+            array[0][3] = true;           array[4][0] = true;
+            array[0][4] = true;           array[5][0] = true;
+            array[0][5] = true;           array[6][0] = true;
+            array[0][6] = true;           array[7][0] = true;
+            array[0][7] = true;           array[1][1] = true;
+            array[2][2] = true;           array[3][3]  =true;               
+            array[4][4] = true;           array[5][5] =true;               
+            array[6][6] =true;            array[7][7] = true;
+            
+           }
+           if(s=='a2'){
+            array[0][0] = true;           array[2][1] = true;
+            array[0][1] = true;           array[3][1] = true;
+            array[0][2] = true;           array[4][1] = true;
+            array[0][3] = true;           array[5][1] = true;
+            array[0][4] = true;           array[6][1] = true;
+            array[0][5] = true;           array[7][1] = true;
+            array[0][6] = true;           array[2][3] = true;
+            array[0][7] = true;           array[3][4] = true;
+            array[1][0] = true;           array[4][5]  =true;               
+            array[1][1] = true;           array[5][6] =true;               
+            array[1][2] =true;            array[6][7] = true;
+           }
+           if(s=='a3'){
+            array[0][0] = true;           array[2][0] = true;
+            array[0][1] = true;           array[2][2] = true;
+            array[0][2] = true;           array[2][4] = true;
+            array[0][3] = true;           array[3][2] = true;
+            array[0][4] = true;           array[4][2] = true;
+            array[0][5] = true;           array[5][2] = true;
+            array[0][6] = true;           array[6][2] = true;
+            array[0][7] = true;           array[7][2] = true;
+            array[1][1] = true;           array[3][5]  =true;               
+            array[1][2] = true;           array[4][6] =true;               
+            array[1][3] =true;            array[5][7] = true;
+           }
+           if(s=='a4')
+           {
+            array[0][0] = true;           array[2][1] = true;
+            array[0][1] = true;           array[3][0] = true;
+            array[0][2] = true;           array[2][3] = true;
+            array[0][3] = true;           array[3][3] = true;
+            array[0][4] = true;           array[4][3] = true;
+            array[0][5] = true;           array[5][3] = true;
+            array[0][6] = true;           array[6][3] = true;
+            array[0][7] = true;           array[7][3] = true;
+            array[1][2] = true;           array[2][5]  =true;               
+            array[1][3] = true;           array[3][6] =true;               
+            array[1][4] =true;            array[4][7] = true;
+           }
+           if(s=='a5')
+           {
+            array[0][0] = true;           array[4][0] = true;
+            array[0][1] = true;           array[1][5] = true;
+            array[0][2] = true;           array[2][6] = true;
+            array[0][3] = true;           array[3][7] = true;
+            array[0][4] = true;           array[2][4] = true;
+            array[0][5] = true;           array[3][4] = true;
+            array[0][6] = true;           array[4][4] = true;
+            array[0][7] = true;           array[5][4] = true;
+            array[1][3] = true;           array[6][4] = true;               
+            array[2][2] = true;           array[7][4] = true;               
+            array[3][1] = true;           array[1][4] = true;
+           }
+           if(s=='a6')
+           {
+            array[0][0] = true;           array[2][7] = true;
+            array[0][1] = true;           array[2][5] = true;
+            array[0][2] = true;           array[3][5] = true;
+            array[0][3] = true;           array[4][5] = true;
+            array[0][4] = true;           array[5][5] = true;
+            array[0][5] = true;           array[6][5] = true;
+            array[0][6] = true;           array[7][5] = true;
+            array[0][7] = true;           array[2][3] = true;
+            array[1][4] = true;           array[3][2] = true;               
+            array[1][5] = true;           array[4][1] = true;               
+            array[1][6] = true;           array[5][0] = true;
+           }
+           if(s=='a7'){
+            array[0][0] = true;           array[2][4] = true;
+            array[0][1] = true;           array[3][3] = true;
+            array[0][2] = true;           array[4][2] = true;
+            array[0][3] = true;           array[5][1] = true;
+            array[0][4] = true;           array[6][0] = true;
+            array[0][5] = true;           array[2][6] = true;
+            array[0][6] = true;           array[3][6] = true;
+            array[0][7] = true;           array[4][6] = true;
+            array[1][5] = true;           array[5][6] = true;               
+            array[1][6] = true;           array[6][6] = true;               
+            array[1][7] = true;           array[7][6] = true;
+           }
+           if(s=='a8'){
+            array[0][0] = true;           array[4][3] = true;
+            array[0][1] = true;           array[5][2] = true;
+            array[0][2] = true;           array[6][1] = true;
+            array[0][3] = true;           array[7][0] = true;
+            array[0][4] = true;           array[1][7] = true;
+            array[0][5] = true;           array[2][7] = true;
+            array[0][6] = true;           array[3][7] = true;
+            array[0][7] = true;           array[4][7] = true;
+            array[1][6] = true;           array[5][7] = true;               
+            array[2][5] = true;           array[6][7] = true;               
+            array[3][4] = true;           array[7][7] = true;
+           }
+           if(s=='b1')
+           {
+            array[0][0] = true;           array[4][3] = true;
+            array[0][1] = true;           array[5][4] = true;
+            array[1][0] = true;           array[6][5] = true;
+            array[2][0] = true;           array[7][6] = true;
+            array[3][0] = true;           array[1][1] = true;
+            array[4][0] = true;           array[1][2] = true;
+            array[5][0] = true;           array[1][3] = true;
+            array[6][0] = true;           array[1][4] = true;
+            array[7][0] = true;           array[1][5] = true;               
+            array[2][1] = true;           array[1][6] = true;               
+            array[3][2] = true;           array[1][7] = true;
+           }
+           if(s=='b2')
+           {
+            array[0][0] = true;           array[2][0] = true;
+            array[0][1] = true;           array[2][1] = true;
+            array[0][2] = true;           array[3][1] = true;
+            array[1][0] = true;           array[4][1] = true;
+            array[1][1] = true;           array[5][1] = true;
+            array[1][2] = true;           array[6][1] = true;
+            array[1][3] = true;           array[7][1] = true;
+            array[1][4] = true;           array[2][2] = true;
+            array[1][5] = true;           array[3][3] = true;               
+            array[1][6] = true;           array[4][4] = true;               
+            array[1][7] = true;           array[5][5] = true;
+            array[6][6] = true;           array[7][7] = true;
+           }
+           if(s=='b3') {
+            array[0][1] = true;           array[3][0] = true;
+            array[0][2] = true;           array[2][2] = true;
+            array[0][3] = true;           array[3][2] = true;
+            array[1][0] = true;           array[4][2] = true;
+            array[1][1] = true;           array[5][2] = true;
+            array[1][2] = true;           array[6][2] = true;
+            array[1][3] = true;           array[7][2] = true;
+            array[1][4] = true;           array[2][3] = true;
+            array[1][5] = true;           array[3][4] = true;               
+            array[1][6] = true;           array[4][5] = true;               
+            array[1][7] = true;           array[5][6] = true;
+            array[2][1] = true;           array[6][7] = true;
+           }
+           if(s=='b4') {
+            array[0][2] = true;           array[3][1] = true;
+            array[0][3] = true;           array[4][0] = true;
+            array[0][4] = true;           array[2][3] = true;
+            array[1][0] = true;           array[3][3] = true;
+            array[1][1] = true;           array[4][3] = true;
+            array[1][2] = true;           array[5][3] = true;
+            array[1][3] = true;           array[6][3] = true;
+            array[1][4] = true;           array[7][3] = true;
+            array[1][5] = true;           array[2][4] = true;               
+            array[1][6] = true;           array[3][5] = true;               
+            array[1][7] = true;           array[4][6] = true;
+            array[2][2] = true;           array[5][7] = true;
+           }
+           if(s=='b5') {
+            array[0][3] = true;           array[3][2] = true;
+            array[0][4] = true;           array[4][1] = true;
+            array[0][5] = true;           array[5][0] = true;
+            array[1][0] = true;           array[2][4] = true;
+            array[1][1] = true;           array[3][4] = true;
+            array[1][2] = true;           array[4][4] = true;
+            array[1][3] = true;           array[5][4] = true;
+            array[1][4] = true;           array[6][4] = true;
+            array[1][5] = true;           array[7][4] = true;               
+            array[1][6] = true;           array[2][5] = true;               
+            array[1][7] = true;           array[3][6] = true;
+            array[2][3] = true;           array[4][7] = true;
+           }
+           if(s=='b6') {
+            array[0][4] = true;           array[3][3] = true;
+            array[0][5] = true;           array[4][2] = true;
+            array[0][6] = true;           array[5][1] = true;
+            array[1][0] = true;           array[6][0] = true;
+            array[1][1] = true;           array[2][5] = true;
+            array[1][2] = true;           array[3][5] = true;
+            array[1][3] = true;           array[4][5] = true;
+            array[1][4] = true;           array[5][5] = true;
+            array[1][5] = true;           array[6][5] = true;               
+            array[1][6] = true;           array[7][5] = true;               
+            array[1][7] = true;           array[2][6] = true;
+            array[2][4] = true;           array[3][7] = true;
+           }
+           if(s=='b7'){
+            array[0][5] = true;           array[3][4] = true;
+            array[0][6] = true;           array[4][3] = true;
+            array[0][7] = true;           array[5][2] = true;
+            array[1][0] = true;           array[6][1] = true;
+            array[1][1] = true;           array[7][0] = true;
+            array[1][2] = true;           array[2][6] = true;
+            array[1][3] = true;           array[3][6] = true;
+            array[1][4] = true;           array[4][6] = true;
+            array[1][5] = true;           array[5][6] = true;               
+            array[1][6] = true;           array[6][6] = true;               
+            array[1][7] = true;           array[7][6] = true;
+            array[2][5] = true;           array[2][7] = true; 
+           }
+           if(s=='b8'){
+            array[0][6] = true;           array[3][5] = true;
+            array[0][7] = true;           array[4][4] = true;
+            array[1][0] = true;           array[5][3] = true;
+            array[1][1] = true;           array[6][2] = true;
+            array[1][2] = true;           array[7][1] = true;
+            array[1][3] = true;           array[2][7] = true;
+            array[1][4] = true;           array[3][7] = true;
+            array[1][5] = true;           array[4][7] = true;
+            array[1][6] = true;           array[5][7] = true;               
+            array[1][7] = true;           array[6][7] = true;               
+            array[2][6] = true;           array[7][7] = true;
+           }
+           if(s=='c1'){
+            array[0][0] = true;           array[2][2] = true;
+            array[1][0] = true;           array[2][3] = true;
+            array[2][0] = true;           array[2][4] = true;
+            array[3][0] = true;           array[2][5] = true;
+            array[4][0] = true;           array[2][6] = true;
+            array[5][0] = true;           array[2][7] = true;
+            array[6][0] = true;           array[3][1] = true;
+            array[7][0] = true;           array[4][2] = true;
+            array[0][2] = true;           array[5][3] = true;               
+            array[1][1] = true;           array[6][4] = true;               
+            array[2][1] = true;           array[7][5] = true;
+           }
+           if(s=='c2') {
+            array[0][1] = true;           array[2][6] = true;
+            array[0][3] = true;           array[2][7] = true;
+            array[1][0] = true;           array[3][0] = true;
+            array[1][1] = true;           array[3][1] = true;
+            array[1][2] = true;           array[4][1] = true;
+            array[2][0] = true;           array[5][1] = true;
+            array[2][1] = true;           array[6][1] = true;
+            array[2][2] = true;           array[7][1] = true;
+            array[2][3] = true;           array[3][2] = true;               
+            array[2][4] = true;           array[4][3] = true;               
+            array[2][5] = true;           array[5][4] = true;
+            array[6][5] = true;           array[7][6] = true;
+           }
+           if(s=='c3') {
+            array[0][0] = true;           array[2][6] = true;
+            array[0][2] = true;           array[2][7] = true;
+            array[0][4] = true;           array[3][1] = true;
+            array[1][1] = true;           array[3][2] = true;
+            array[1][2] = true;           array[3][3] = true;
+            array[1][3] = true;           array[4][0] = true;
+            array[2][0] = true;           array[4][2] = true;
+            array[2][1] = true;           array[5][2] = true;
+            array[2][2] = true;           array[6][2] = true;               
+            array[2][3] = true;           array[7][2] = true;               
+            array[2][4] = true;           array[4][4] = true;
+            array[2][5] = true;           array[5][5] = true;
+            array[6][6] = true;           array[7][7] = true;
+           }
+           if(s=='c4'){
+            array[0][1] = true;           array[2][7] = true;
+            array[0][3] = true;           array[3][2] = true;
+            array[0][5] = true;           array[4][1] = true;
+            array[1][2] = true;           array[5][0] = true;
+            array[1][3] = true;           array[3][3] = true;
+            array[1][4] = true;           array[4][3] = true;
+            array[2][0] = true;           array[5][3] = true;
+            array[2][1] = true;           array[6][3] = true;
+            array[2][2] = true;           array[7][3] = true;               
+            array[2][3] = true;           array[3][4] = true;               
+            array[2][4] = true;           array[4][5] = true;
+            array[2][5] = true;           array[5][6] = true;
+            array[2][6] = true;           array[6][7] = true;
+           }
+           if(s=='c5') {
+            array[0][2] = true;           array[2][7] = true;
+            array[0][4] = true;           array[3][3] = true;
+            array[0][6] = true;           array[4][2] = true;
+            array[1][3] = true;           array[5][1] = true;
+            array[1][4] = true;           array[6][0] = true;
+            array[1][5] = true;           array[3][4] = true;
+            array[2][0] = true;           array[4][4] = true;
+            array[2][1] = true;           array[5][4] = true;
+            array[2][2] = true;           array[6][4] = true;               
+            array[2][3] = true;           array[7][4] = true;               
+            array[2][4] = true;           array[3][5] = true;
+            array[2][5] = true;           array[4][6] = true;
+            array[2][6] = true;           array[5][7] = true;
+           }
+           if(s=='c6') {
+            array[0][3] = true;           array[2][7] = true;
+            array[0][5] = true;           array[3][4] = true;
+            array[0][7] = true;           array[4][3] = true;
+            array[1][4] = true;           array[5][2] = true;
+            array[1][5] = true;           array[6][1] = true;
+            array[1][6] = true;           array[7][0] = true;
+            array[2][0] = true;           array[3][5] = true;
+            array[2][1] = true;           array[4][5] = true;
+            array[2][2] = true;           array[5][5] = true;               
+            array[2][3] = true;           array[6][5] = true;               
+            array[2][4] = true;           array[7][5] = true;
+            array[2][5] = true;           array[3][6] = true;
+            array[2][6] = true;           array[4][7] = true;
+           }
+           if(s=='c7'){
+            array[0][4] = true;           array[3][5] = true;
+            array[0][6] = true;           array[4][4] = true;
+            array[1][5] = true;           array[5][3] = true;
+            array[1][6] = true;           array[6][2] = true;
+            array[1][7] = true;           array[7][1] = true;
+            array[2][7] = true;           array[3][6] = true;
+            array[2][0] = true;           array[4][6] = true;
+            array[2][1] = true;           array[5][6] = true;
+            array[2][2] = true;           array[7][6] = true;               
+            array[2][3] = true;           array[3][7] = true;               
+            array[2][4] = true;           array[6][6] = true;
+            array[2][5] = true;           
+            array[2][6] = true;           
+           }
+           if(s=='c8'){
+            array[0][5] = true;           array[4][5] = true;
+            array[0][7] = true;           array[5][4] = true;
+            array[2][0] = true;           array[6][3] = true;
+            array[2][1] = true;           array[7][2] = true;
+            array[2][2] = true;           array[3][7] = true;
+            array[2][3] = true;           array[4][7] = true;
+            array[2][4] = true;           array[5][7] = true;
+            array[2][5] = true;           array[6][7] = true;
+            array[2][6] = true;           array[7][7] = true;               
+            array[2][7] = true;           array[1][7] = true;               
+            array[3][6] = true;           array[1][6] = true;
+           }
+           if(s=='d1') {
+            array[0][0] = true;           array[3][1] = true;
+            array[1][0] = true;           array[3][2] = true;
+            array[2][0] = true;           array[3][3] = true;
+            array[3][0] = true;           array[3][4] = true;
+            array[4][0] = true;           array[3][5] = true;
+            array[5][0] = true;           array[3][6] = true;
+            array[6][0] = true;           array[3][7] = true;
+            array[7][0] = true;           array[4][1] = true;
+            array[2][1] = true;           array[5][2] = true;               
+            array[1][2] = true;           array[6][3] = true;               
+            array[0][3] = true;           array[7][4] = true; 
+            
+           }
+           if(s=='d2') {
+            array[2][0] = true;           array[2][2] = true;
+            array[3][0] = true;           array[1][3] = true;
+            array[4][0] = true;           array[0][4] = true;
+            array[0][1] = true;           array[3][2] = true;
+            array[1][1] = true;           array[3][3] = true;
+            array[2][1] = true;           array[3][4] = true;
+            array[3][1] = true;           array[3][5] = true;
+            array[4][1] = true;           array[3][6] = true;
+            array[5][1] = true;           array[3][7] = true;               
+            array[6][1] = true;           array[4][2] = true;               
+            array[7][1] = true;           array[5][3] = true; 
+            array[6][4] = true;           array[7][5] = true;
+           }
+           if(s=='d3') {
+            array[1][0] = true;           array[6][2] = true;
+            array[3][0] = true;           array[7][2] = true;
+            array[5][0] = true;           array[2][3] = true;
+            array[2][1] = true;           array[3][1] = true;
+            array[3][1] = true;           array[4][0] = true;
+            array[4][1] = true;           array[3][3] = true;
+            array[0][2] = true;           array[3][4] = true;
+            array[1][2] = true;           array[3][5] = true;
+            array[2][2] = true;           array[3][6] = true;               
+            array[3][2] = true;           array[3][7] = true;               
+            array[4][2] = true;           array[4][3] = true; 
+            array[5][2] = true;           array[5][4] = true; 
+            array[6][5] = true;           array[7][6] = true;
+           }
+           if(s=='d4'){
+            array[0][0] = true;           array[3][4] = true;
+            array[1][1] = true;           array[3][5] = true;
+            array[2][2] = true;           array[3][6] = true;
+            array[0][3] = true;           array[3][7] = true;
+            array[1][3] = true;           array[4][2] = true;
+            array[2][3] = true;           array[5][1] = true;
+            array[2][4] = true;           array[6][0] = true;
+            array[1][5] = true;           array[4][3] = true;
+            array[0][6] = true;           array[5][3] = true;               
+            array[3][0] = true;           array[6][3] = true;               
+            array[3][1] = true;           array[7][3] = true; 
+            array[3][2] = true;           array[4][4] = true; 
+            array[3][3] = true;           array[5][5] = true;
+            array[6][6] = true;           array[7][7] = true;
+           }
+           if(s=='d5') {
+            array[0][1] = true;           array[3][4] = true;
+            array[1][2] = true;           array[3][5] = true;
+            array[2][3] = true;           array[3][6] = true;
+            array[0][4] = true;           array[3][7] = true;
+            array[1][4] = true;           array[5][2] = true;
+            array[2][4] = true;           array[6][1] = true;
+            array[2][5] = true;           array[7][0] = true;
+            array[1][6] = true;           array[4][4] = true;
+            array[0][7] = true;           array[5][4] = true;               
+            array[3][0] = true;           array[6][4] = true;               
+            array[3][1] = true;           array[7][4] = true; 
+            array[3][2] = true;           array[4][5] = true; 
+            array[3][3] = true;           array[5][6] = true;
+            array[4][3] = true;           array[6][7] = true; 
+           }
+           if(s=='d6') {
+            array[0][2] = true;           array[3][4] = true;
+            array[1][3] = true;           array[3][5] = true;
+            array[2][4] = true;           array[3][6] = true;
+            array[0][5] = true;           array[4][4] = true;
+            array[1][5] = true;           array[5][3] = true;
+            array[2][5] = true;           array[6][2] = true;
+            array[2][6] = true;           array[7][1] = true;
+            array[1][7] = true;           array[4][5] = true;
+            array[3][7] = true;           array[5][5] = true;               
+            array[3][0] = true;           array[6][5] = true;               
+            array[3][1] = true;           array[7][5] = true; 
+            array[3][2] = true;           array[4][6] = true; 
+            array[3][3] = true;           array[5][7] = true;
+           }
+           if(s=='d7'){
+            array[0][3] = true;           array[3][5] = true;
+            array[1][4] = true;           array[3][6] = true;
+            array[2][5] = true;           array[3][7] = true;
+            array[0][6] = true;           array[4][7] = true;
+            array[1][6] = true;           array[4][6] = true;
+            array[2][6] = true;           array[5][6] = true;
+            array[2][7] = true;           array[6][6] = true;
+            array[3][0] = true;           array[7][6] = true;
+            array[3][1] = true;           array[4][5] = true;               
+            array[3][2] = true;           array[5][4] = true;               
+            array[3][4] = true;           array[6][3] = true; 
+            array[3][3] = true;           array[7][2] = true;  
+           }
+           if(s=='d8'){
+            array[0][4] = true;           array[3][5] = true;
+            array[1][5] = true;           array[3][6] = true;
+            array[2][6] = true;           array[3][7] = true;
+            array[0][7] = true;           array[5][7] = true;
+            array[1][7] = true;           array[6][7] = true;
+            array[2][7] = true;           array[7][7] = true;
+            array[4][7] = true;           array[4][6] = true;
+            array[3][0] = true;           array[5][5] = true;
+            array[3][1] = true;           array[6][4] = true;               
+            array[3][2] = true;           array[7][3] = true;               
+            array[3][3] = true;           array[3][4] = true;                      
+           }
+           if(s=='e1'){
+            array[0][0] = true;           array[0][4] = true;
+            array[1][0] = true;           array[4][1] = true;
+            array[2][0] = true;           array[4][2] = true;
+            array[3][0] = true;           array[4][3] = true;
+            array[4][0] = true;           array[4][4] = true;
+            array[5][0] = true;           array[4][5] = true;
+            array[6][0] = true;           array[4][6] = true;
+            array[7][0] = true;           array[4][7] = true;
+            array[3][1] = true;           array[5][1] = true;               
+            array[2][2] = true;           array[6][2] = true;               
+            array[1][3] = true;           array[7][3] = true;
+           }
+           if(s=='e2'){
+            array[3][0] = true;           array[3][2] = true;
+            array[4][0] = true;           array[2][3] = true;
+            array[5][0] = true;           array[1][4] = true;
+            array[0][1] = true;           array[0][5] = true;
+            array[1][1] = true;           array[4][2] = true;
+            array[2][1] = true;           array[4][3] = true;
+            array[3][1] = true;           array[4][4] = true;
+            array[4][1] = true;           array[4][5] = true;
+            array[5][1] = true;           array[4][6] = true;               
+            array[6][1] = true;           array[4][7] = true;               
+            array[7][1] = true;           array[5][2] = true;
+            array[6][3] = true;           array[7][4] = true;
+           }
+           if(s=='e3'){
+            array[2][0] = true;           array[6][2] = true;
+            array[4][0] = true;           array[7][2] = true;
+            array[6][0] = true;           array[3][3] = true;
+            array[3][1] = true;           array[2][4] = true;
+            array[4][1] = true;           array[1][5] = true;
+            array[5][1] = true;           array[0][6] = true;
+            array[0][2] = true;           array[4][3] = true;
+            array[1][2] = true;           array[4][4] = true;
+            array[2][2] = true;           array[4][5] = true;               
+            array[3][2] = true;           array[4][6] = true;               
+            array[4][2] = true;           array[4][7] = true;
+            array[5][2] = true;           array[5][3] = true; 
+            array[6][4] = true;           array[7][5] = true;
+           }
+           if(s=='e4') {
+            array[1][0] = true;           array[4][3] = true;
+            array[2][1] = true;           array[5][3] = true;
+            array[3][2] = true;           array[6][3] = true;
+            array[4][0] = true;           array[7][3] = true;
+            array[4][1] = true;           array[3][4] = true;
+            array[4][2] = true;           array[2][5] = true;
+            array[7][0] = true;           array[1][6] = true;
+            array[6][1] = true;           array[0][7] = true;
+            array[5][2] = true;           array[4][4] = true;               
+            array[0][3] = true;           array[4][5] = true;               
+            array[1][3] = true;           array[4][6] = true;
+            array[2][3] = true;           array[4][7] = true; 
+            array[3][3] = true;           array[5][4] = true; 
+            array[6][5] = true;           array[7][6] = true;
+           }
+           if(s=='e5') {
+            array[0][0] = true;           array[4][7] = true;
+            array[1][1] = true;           array[0][4] = true;
+            array[2][2] = true;           array[1][4] = true;
+            array[3][3] = true;           array[2][4] = true;
+            array[7][1] = true;           array[3][4] = true;
+            array[6][2] = true;           array[7][7] = true;
+            array[5][3] = true;           array[5][4] = true;
+            array[4][0] = true;           array[6][4] = true;
+            array[4][1] = true;           array[7][4] = true;               
+            array[4][2] = true;           array[3][5] = true;               
+            array[4][3] = true;           array[2][6] = true;
+            array[4][4] = true;           array[1][7] = true; 
+            array[4][5] = true;           array[5][5] = true; 
+            array[4][6] = true;           array[6][6] = true; 
+           }
+           if(s=='e6') {
+            array[0][1] = true;           array[1][5] = true;
+            array[1][2] = true;           array[2][5] = true;
+            array[2][3] = true;           array[3][5] = true;
+            array[3][4] = true;           array[4][5] = true;
+            array[4][0] = true;           array[5][5] = true;
+            array[4][1] = true;           array[6][5] = true;
+            array[4][2] = true;           array[7][5] = true;
+            array[4][3] = true;           array[3][6] = true;
+            array[4][4] = true;           array[2][7] = true;               
+            array[7][2] = true;           array[4][6] = true;               
+            array[6][3] = true;           array[4][7] = true;
+            array[5][4] = true;           array[5][6] = true; 
+            array[0][5] = true;           array[6][7] = true;   
+           }
+           if(s=='e7') {
+            array[0][2] = true;           array[4][5] = true;
+            array[1][3] = true;           array[3][7] = true;
+            array[2][4] = true;           array[4][7] = true;
+            array[3][5] = true;           array[0][6] = true;
+            array[7][3] = true;           array[1][6] = true;
+            array[6][4] = true;           array[2][6] = true;
+            array[5][5] = true;           array[3][6] = true;
+            array[4][0] = true;           array[4][6] = true;
+            array[4][1] = true;           array[5][6] = true;               
+            array[4][2] = true;           array[6][6] = true;               
+            array[4][3] = true;           array[7][6] = true;
+            array[4][4] = true;           array[5][7] = true; 
+           }
+           if(s=='e8'){
+            array[0][3] = true;           array[4][4] = true;
+            array[1][4] = true;           array[4][5] = true;
+            array[2][5] = true;           array[4][6] = true;
+            array[3][6] = true;           array[4][7] = true;
+            array[5][6] = true;           array[0][7] = true;
+            array[6][5] = true;           array[1][7] = true;
+            array[7][4] = true;           array[2][7] = true;
+            array[4][0] = true;           array[3][7] = true;
+            array[4][1] = true;           array[5][7] = true;               
+            array[4][2] = true;           array[6][7] = true;               
+            array[4][3] = true;           array[7][7] = true;
+           }
+           if(s=='f1') {
+            array[0][0] = true;           array[1][4] = true;
+            array[1][0] = true;           array[0][5] = true;
+            array[2][0] = true;           array[5][1] = true;
+            array[3][0] = true;           array[5][2] = true;
+            array[4][0] = true;           array[5][3] = true;
+            array[5][0] = true;           array[5][4] = true;
+            array[6][0] = true;           array[5][5] = true;
+            array[7][0] = true;           array[5][6] = true;
+            array[4][1] = true;           array[5][7] = true;               
+            array[3][2] = true;           array[6][1] = true;               
+            array[2][3] = true;           array[7][2] = true; 
+           }
+           if(s=='f2') {
+            array[4][0] = true;           array[5][2] = true;
+            array[5][0] = true;           array[5][3] = true;
+            array[6][0] = true;           array[5][4] = true;
+            array[0][1] = true;           array[5][5] = true;
+            array[1][1] = true;           array[5][6] = true;
+            array[2][1] = true;           array[5][7] = true;
+            array[3][1] = true;           array[4][2] = true;
+            array[4][1] = true;           array[3][3] = true;
+            array[5][1] = true;           array[2][4] = true;               
+            array[6][1] = true;           array[1][5] = true;               
+            array[7][1] = true;           array[0][6] = true; 
+            array[6][2] = true;           array[7][3] = true;
+           }
+           if(s=='f3') {
+            array[3][0] = true;           array[6][2] = true;
+            array[5][0] = true;           array[7][2] = true;
+            array[7][0] = true;           array[5][3] = true;
+            array[4][1] = true;           array[5][4] = true;
+            array[5][1] = true;           array[5][5] = true;
+            array[6][1] = true;           array[5][6] = true;
+            array[0][2] = true;           array[5][7] = true;
+            array[1][2] = true;           array[6][3] = true;
+            array[2][2] = true;           array[7][4] = true;               
+            array[3][2] = true;           array[4][3] = true;               
+            array[4][2] = true;           array[3][4] = true; 
+            array[5][2] = true;           array[2][5] = true; 
+            array[1][6] = true;           array[0][7] = true;
+           }
+           if(s=='f4'){
+            array[2][0] = true;           array[5][3] = true;
+            array[5][0] = true;           array[6][3] = true;
+            array[3][1] = true;           array[4][4] = true;
+            array[5][1] = true;           array[3][5] = true;
+            array[7][1] = true;           array[2][6] = true;
+            array[4][2] = true;           array[1][7] = true;
+            array[5][2] = true;           array[6][4] = true;
+            array[6][2] = true;           array[7][5] = true;
+            array[0][3] = true;           array[5][4] = true;               
+            array[1][3] = true;           array[5][5] = true;               
+            array[2][3] = true;           array[5][6] = true; 
+            array[3][3] = true;           array[5][7] = true; 
+            array[4][3] = true;           array[7][3] = true; 
+           }
+           if(s=='f5') {
+            array[1][0] = true;           array[5][7] = true;
+            array[2][1] = true;           array[0][4] = true;
+            array[3][2] = true;           array[1][4] = true;
+            array[4][3] = true;           array[2][4] = true;
+            array[7][2] = true;           array[3][4] = true;
+            array[6][3] = true;           array[4][4] = true;
+            array[5][0] = true;           array[2][7] = true;
+            array[5][1] = true;           array[6][4] = true;
+            array[5][2] = true;           array[7][4] = true;               
+            array[5][3] = true;           array[6][5] = true;               
+            array[5][4] = true;           array[7][6] = true; 
+            array[5][5] = true;           array[4][5] = true; 
+            array[5][6] = true;           array[3][6] = true; 
+           }
+           if(s=='f6'){
+            array[0][0] = true;           array[5][7] = true;
+            array[1][1] = true;           array[5][0] = true;
+            array[2][2] = true;           array[0][5] = true;
+            array[3][3] = true;           array[1][5] = true;
+            array[4][4] = true;           array[2][5] = true;
+            array[7][3] = true;           array[3][5] = true;
+            array[6][4] = true;           array[4][5] = true;
+            array[5][1] = true;           array[4][6] = true;
+            array[5][2] = true;           array[6][5] = true;               
+            array[5][3] = true;           array[7][5] = true;               
+            array[5][4] = true;           array[6][6] = true; 
+            array[5][5] = true;           array[7][7] = true; 
+            array[5][6] = true;           array[3][7] = true;  
+           }
+           if(s=='f7') {
+            array[0][1] = true;           array[5][7] = true;
+            array[1][2] = true;           array[5][0] = true;
+            array[2][3] = true;           array[5][6] = true;
+            array[3][4] = true;           array[0][6] = true;
+            array[4][5] = true;           array[1][6] = true;
+            array[7][4] = true;           array[2][6] = true;
+            array[6][5] = true;           array[3][6] = true;
+            array[5][1] = true;           array[4][6] = true;
+            array[5][2] = true;           array[4][7] = true;               
+            array[5][3] = true;           array[6][6] = true;               
+            array[5][4] = true;           array[7][6] = true; 
+            array[5][5] = true;           array[6][7] = true;  
+           }
+           if(s=='f8'){
+            array[0][2] = true;           array[5][0] = true;
+            array[1][3] = true;           array[5][5] = true;
+            array[2][4] = true;           array[5][6] = true;
+            array[3][5] = true;           array[5][7] = true;
+            array[4][6] = true;           array[0][7] = true;
+            array[7][5] = true;           array[1][7] = true;
+            array[6][6] = true;           array[2][7] = true;
+            array[5][1] = true;           array[3][7] = true;
+            array[5][2] = true;           array[4][7] = true;               
+            array[5][3] = true;           array[6][7] = true;               
+            array[5][4] = true;           array[7][7] = true; 
+           }
+           if(s=='g1') {
+            array[0][0] = true;           array[6][3] = true;
+            array[1][0] = true;           array[6][4] = true;
+            array[2][0] = true;           array[6][5] = true;
+            array[3][0] = true;           array[6][6] = true;
+            array[4][0] = true;           array[6][7] = true;
+            array[5][0] = true;           array[5][1] = true;
+            array[6][0] = true;           array[4][2] = true;
+            array[7][0] = true;           array[3][3] = true;
+            array[7][1] = true;           array[2][4] = true;               
+            array[6][1] = true;           array[1][5] = true;               
+            array[6][2] = true;           array[0][6] = true;
+           }
+           if(s=='g2') {
+            array[5][0] = true;           array[7][2] = true;
+            array[6][0] = true;           array[6][2] = true;
+            array[7][0] = true;           array[6][3] = true;
+            array[0][1] = true;           array[6][4] = true;
+            array[1][1] = true;           array[6][5] = true;
+            array[2][1] = true;           array[6][6] = true;
+            array[3][1] = true;           array[6][7] = true;
+            array[4][1] = true;           array[5][2] = true;
+            array[5][1] = true;           array[4][3] = true;               
+            array[6][1] = true;           array[3][4] = true;               
+            array[7][1] = true;           array[2][5] = true;
+            array[1][6] = true;           array[0][7] = true;
+           }
+           if(s=='g3') {
+            array[4][0] = true;           array[7][2] = true;
+            array[6][0] = true;           array[7][3] = true;
+            array[5][1] = true;           array[6][3] = true;
+            array[6][1] = true;           array[6][4] = true;
+            array[7][1] = true;           array[6][5] = true;
+            array[0][2] = true;           array[6][6] = true;
+            array[1][2] = true;           array[6][7] = true;
+            array[2][2] = true;           array[5][3] = true;
+            array[3][2] = true;           array[4][4] = true;               
+            array[4][2] = true;           array[3][5] = true;               
+            array[5][2] = true;           array[2][6] = true;
+            array[6][2] =true;            array[1][7] = true; 
+           }
+           if(s=='g4') {
+            array[3][0] = true;           array[4][3] = true;
+            array[6][0] = true;           array[5][3] = true;
+            array[4][1] = true;           array[6][3] = true;
+            array[6][1] = true;           array[7][3] = true;
+            array[5][2] = true;           array[7][4] = true;
+            array[6][2] = true;           array[6][4] = true;
+            array[7][2] = true;           array[6][5] = true;
+            array[0][3] = true;           array[6][6] = true;
+            array[1][3] = true;           array[6][7] = true;               
+            array[2][3] = true;           array[5][4] = true;               
+            array[3][3] = true;           array[4][5] = true;
+            array[3][6] = true;           array[2][7] = true;
+           }
+           if(s=='g5') {
+            array[2][0] = true;           array[6][7] = true;
+            array[3][1] = true;           array[0][4] = true;
+            array[4][2] = true;           array[1][4] = true;
+            array[5][3] = true;           array[2][4] = true;
+            array[7][3] = true;           array[3][4] = true;
+            array[6][0] = true;           array[4][4] = true;
+            array[6][1] = true;           array[5][4] = true;
+            array[6][2] = true;           array[3][7] = true;
+            array[6][3] = true;           array[7][4] = true;               
+            array[6][4] = true;           array[7][5] = true;               
+            array[6][5] = true;           array[5][5] = true;
+            array[6][6] = true;           array[4][6] = true;
+           }
+           if(s=='g6'){
+            array[1][0] = true;           array[6][6] = true;
+            array[2][1] = true;           array[6][7] = true;
+            array[3][2] = true;           array[7][6] = true;
+            array[4][3] = true;           array[5][6] = true;
+            array[5][4] = true;           array[4][7] = true;
+            array[7][4] = true;           array[0][5] = true;
+            array[6][0] = true;           array[1][5] = true;
+            array[6][1] = true;           array[2][5] = true;
+            array[6][2] = true;           array[3][5] = true;               
+            array[6][3] = true;           array[4][5] = true;               
+            array[6][4] = true;           array[5][5] = true;
+            array[6][5] = true;           array[7][5] = true;
+           }
+           if(s=='g7'){
+            array[0][0] = true;           array[6][4] = true;
+            array[1][1] = true;           array[6][5] = true;
+            array[2][2] = true;           array[5][7] = true;
+            array[3][3] = true;           array[6][7] = true;
+            array[4][4] = true;           array[0][6] = true;
+            array[5][5] = true;           array[1][6] = true;
+            array[6][6] = true;           array[2][6] = true;
+            array[7][7] = true;           array[3][6] = true;
+            array[6][0] = true;           array[4][6] = true;               
+            array[6][1] = true;           array[5][6] = true;               
+            array[6][2] = true;           array[7][6] = true;
+            array[6][3] = true;           array[7][5] = true;
+           }
+           if(s=='g8'){
+            array[0][1] = true;           array[6][4] = true;
+            array[1][2] = true;           array[6][5] = true;
+            array[2][3] = true;           array[6][6] = true;
+            array[3][4] = true;           array[6][7] = true;
+            array[4][5] = true;           array[0][7] = true;
+            array[5][6] = true;           array[1][7] = true;
+            array[7][6] = true;           array[2][7] = true;
+            array[6][3] = true;           array[3][7] = true;
+            array[6][0] = true;           array[4][7] = true;               
+            array[6][1] = true;           array[5][7] = true;               
+            array[6][2] = true;           array[7][7] = true; 
+           }
+           if(s=='h1') {
+            array[0][0] = true;           array[7][4] = true;
+            array[1][0] = true;           array[7][5] = true;
+            array[2][0] = true;           array[7][6] = true;
+            array[3][0] = true;           array[7][7] = true;
+            array[4][0] = true;           array[6][1] = true;
+            array[5][0] = true;           array[5][2] = true;
+            array[6][0] = true;           array[4][3] = true;
+            array[7][0] = true;           array[3][4] = true;
+            array[7][1] = true;           array[2][5] = true;               
+            array[7][2] = true;           array[1][6] = true;               
+            array[7][3] = true;           array[0][7] = true; 
+           }
+           if(s=='h2'){
+            array[6][0] = true;           array[7][3] = true;
+            array[7][0] = true;           array[7][4] = true;
+            array[0][1] = true;           array[7][5] = true;
+            array[1][1] = true;           array[7][6] = true;
+            array[2][1] = true;           array[7][7] = true;
+            array[3][1] = true;           array[6][2] = true;
+            array[4][1] = true;           array[5][3] = true;
+            array[5][1] = true;           array[4][4] = true;
+            array[6][1] = true;           array[3][5] = true;               
+            array[7][1] = true;           array[2][6] = true;               
+            array[7][2] = true;           array[1][7] = true; 
+           }
+           if(s=='h3'){
+            array[5][0] = true;           array[7][2] = true;
+            array[7][0] = true;           array[7][4] = true;
+            array[6][1] = true;           array[7][5] = true;
+            array[7][1] = true;           array[7][6] = true;
+            array[0][2] = true;           array[7][7] = true;
+            array[1][2] = true;           array[7][3] = true;
+            array[2][2] = true;           array[6][3] = true;
+            array[3][2] = true;           array[5][4] = true;
+            array[4][2] = true;           array[4][5] = true;               
+            array[5][2] = true;           array[3][6] = true;               
+            array[6][2] = true;           array[2][7] = true;  
+           }
+           if(s=='h4') {
+            array[4][0] = true;           array[0][3] = true;
+            array[7][0] = true;           array[1][3] = true;
+            array[5][1] = true;           array[2][3] = true;
+            array[6][2] = true;           array[3][3] = true;
+            array[7][1] = true;           array[4][3] = true;
+            array[7][2] = true;           array[5][3] = true;
+            array[7][3] = true;           array[6][3] = true;
+            array[7][4] = true;           array[6][4] = true;
+            array[7][5] = true;           array[5][5] = true;               
+            array[7][6] = true;           array[4][6] = true;               
+            array[7][7] = true;           array[3][7] = true; 
+           }
+           if(s=='h5'){
+            array[3][0] = true;           array[7][0] = true;
+            array[4][1] = true;           array[0][4] = true;
+            array[5][2] = true;           array[1][4] = true;
+            array[6][3] = true;           array[2][4] = true;
+            array[7][1] = true;           array[3][4] = true;
+            array[7][2] = true;           array[4][4] = true;
+            array[7][3] = true;           array[5][4] = true;
+            array[7][4] = true;           array[6][4] = true;
+            array[7][5] = true;           array[6][5] = true;               
+            array[7][6] = true;           array[5][6] = true;               
+            array[7][7] = true;           array[4][7] = true;  
+           }
+           if(s=='h6'){
+            array[2][0] = true;           array[7][0] = true;
+            array[3][1] = true;           array[6][4] = true;
+            array[4][2] = true;           array[0][5] = true;
+            array[5][3] = true;           array[1][5] = true;
+            array[7][1] = true;           array[2][5] = true;
+            array[7][2] = true;           array[3][5] = true;
+            array[7][3] = true;           array[4][5] = true;
+            array[7][4] = true;           array[5][5] = true;
+            array[7][5] = true;           array[6][5] = true;               
+            array[7][6] = true;           array[6][6] = true;               
+            array[7][7] = true;           array[5][7] = true;  
+           }
+           if(s=='h7') {
+            array[1][0] = true;           array[7][0] = true;
+            array[2][1] = true;           array[5][4] = true;
+            array[3][2] = true;           array[6][5] = true;
+            array[4][3] = true;           array[0][6] = true;
+            array[7][1] = true;           array[1][6] = true;
+            array[7][2] = true;           array[2][6] = true;
+            array[7][3] = true;           array[3][6] = true;
+            array[7][4] = true;           array[4][6] = true;
+            array[7][5] = true;           array[5][6] = true;               
+            array[7][6] = true;           array[6][6] = true;               
+            array[7][7] = true;           array[6][7] = true;
+           }
+           if(s=='h8') {
+            array[0][0] = true;           array[7][0] = true;
+            array[1][1] = true;           array[4][4] = true;
+            array[2][2] = true;           array[5][5] = true;
+            array[3][3] = true;           array[6][6] = true;
+            array[7][1] = true;           array[0][7] = true;
+            array[7][2] = true;           array[1][7] = true;
+            array[7][3] = true;           array[2][7] = true;
+            array[7][4] = true;           array[3][7] = true;
+            array[7][5] = true;           array[4][7] = true;               
+            array[7][6] = true;           array[5][7] = true;               
+            array[7][7] = true;           array[6][7] = true;
+           }
+         }
+         function method4()
+         {
+           for(var i=0;i<array.length;i++)
+           {
+             for(var j=0;j<array[i].length;j++)
+             {
+               alert(array[i][j]+" i: "+i+",j: "+j);
+             }
+           }
+         }
+         
+         
+     </script>
+  </head>
+  <body>
+       <table>
+           <tr>
+              <td id="a1" ondrop="method2(event)" ondragover="return false;" class="b"></td>
+              <td id="a2" ondrop="method2(event)" ondragover="return false;" class="b"></td>
+              <td id="a3" ondrop="method2(event)" ondragover="return false;" class="b"></td>
+              <td id="a4" ondrop="method2(event)" ondragover="return false;" class="b"></td>
+              <td id="a5" ondrop="method2(event)" ondragover="return false;" class="b"></td>
+              <td id="a6" ondrop="method2(event)" ondragover="return false;" class="b"></td>
+              <td id="a7" ondrop="method2(event)" ondragover="return false;" class="b"></td>
+              <td id="a8" ondrop="method2(event)" ondragover="return false;" class="b"></td> 
+           </tr>
+           <tr>
+              <td id="b1" ondrop="method2(event)" ondragover="return false;" class="b"></td>
+              <td id="b2" ondrop="method2(event)" ondragover="return false;" class="b"></td>
+              <td id="b3" ondrop="method2(event)" ondragover="return false;" class="b"></td>
+              <td id="b4" ondrop="method2(event)" ondragover="return false;" class="b"></td>
+              <td id="b5" ondrop="method2(event)" ondragover="return false;" class="b"></td>
+              <td id="b6" ondrop="method2(event)" ondragover="return false;" class="b"></td>
+              <td id="b7" ondrop="method2(event)" ondragover="return false;" class="b"></td>
+              <td id="b8" ondrop="method2(event)" ondragover="return false;" class="b"></td>
+           </tr>
+           <tr>
+              <td id="c1" ondrop="method2(event)" ondragover="return false;" class="b"></td>
+              <td id="c2" ondrop="method2(event)" ondragover="return false;" class="b"></td>
+              <td id="c3" ondrop="method2(event)" ondragover="return false;" class="b"></td>
+              <td id="c4" ondrop="method2(event)" ondragover="return false;" class="b"></td>
+              <td id="c5" ondrop="method2(event)" ondragover="return false;" class="b"></td>
+              <td id="c6" ondrop="method2(event)" ondragover="return false;" class="b"></td>
+              <td id="c7" ondrop="method2(event)" ondragover="return false;" class="b"></td>
+              <td id="c8" ondrop="method2(event)" ondragover="return false;" class="b"></td>
+           </tr>
+           <tr>
+              <td id="d1" ondrop="method2(event)" ondragover="return false;" class="b"></td>
+              <td id="d2" ondrop="method2(event)" ondragover="return false;" class="b"></td>
+              <td id="d3" ondrop="method2(event)" ondragover="return false;" class="b"></td>
+              <td id="d4" ondrop="method2(event)" ondragover="return false;" class="b"></td>
+              <td id="d5" ondrop="method2(event)" ondragover="return false;" class="b"></td>
+              <td id="d6" ondrop="method2(event)" ondragover="return false;" class="b"></td>
+              <td id="d7" ondrop="method2(event)" ondragover="return false;" class="b"></td>
+              <td id="d8" ondrop="method2(event)" ondragover="return false;" class="b"></td>
+           </tr>
+           <tr>
+              <td id="e1" ondrop="method2(event)" ondragover="return false;" class="b"></td>
+              <td id="e2" ondrop="method2(event)" ondragover="return false;" class="b"></td>
+              <td id="e3" ondrop="method2(event)" ondragover="return false;" class="b"></td>
+              <td id="e4" ondrop="method2(event)" ondragover="return false;" class="b"></td>
+              <td id="e5" ondrop="method2(event)" ondragover="return false;" class="b"></td>
+              <td id="e6" ondrop="method2(event)" ondragover="return false;" class="b"></td>
+              <td id="e7" ondrop="method2(event)" ondragover="return false;" class="b"></td>
+              <td id="e8" ondrop="method2(event)" ondragover="return false;" class="b"></td>
+           </tr>
+           <tr>
+              <td id="f1" ondrop="method2(event)" ondragover="return false;" class="b"></td>
+              <td id="f2" ondrop="method2(event)" ondragover="return false;" class="b"></td>
+              <td id="f3" ondrop="method2(event)" ondragover="return false;" class="b"></td>
+              <td id="f4" ondrop="method2(event)" ondragover="return false;" class="b"></td>
+              <td id="f5" ondrop="method2(event)" ondragover="return false;" class="b"></td>
+              <td id="f6" ondrop="method2(event)" ondragover="return false;" class="b"></td>
+              <td id="f7" ondrop="method2(event)" ondragover="return false;" class="b"></td>
+              <td id="f8" ondrop="method2(event)" ondragover="return false;" class="b"></td>
+           </tr>
+           <tr>
+              <td id="g1" ondrop="method2(event)" ondragover="return false;" class="b"></td>
+              <td id="g2" ondrop="method2(event)" ondragover="return false;" class="b"></td>
+              <td id="g3" ondrop="method2(event)" ondragover="return false;" class="b"></td>
+              <td id="g4" ondrop="method2(event)" ondragover="return false;" class="b"></td>
+              <td id="g5" ondrop="method2(event)" ondragover="return false;" class="b"></td>
+              <td id="g6" ondrop="method2(event)" ondragover="return false;" class="b"></td>
+              <td id="g7" ondrop="method2(event)" ondragover="return false;" class="b"></td>
+              <td id="g8" ondrop="method2(event)" ondragover="return false;" class="b"></td>
+           </tr>
+           <tr>
+              <td id="h1" ondrop="method2(event)" ondragover="return false;" class="b"></td>
+              <td id="h2" ondrop="method2(event)" ondragover="return false;" class="b"></td>
+              <td id="h3" ondrop="method2(event)" ondragover="return false;" class="b"></td>
+              <td id="h4" ondrop="method2(event)" ondragover="return false;" class="b"></td>
+              <td id="h5" ondrop="method2(event)" ondragover="return false;" class="b"></td>
+              <td id="h6" ondrop="method2(event)" ondragover="return false;" class="b"></td>
+              <td id="h7" ondrop="method2(event)" ondragover="return false;" class="b"></td>
+              <td id="h8" ondrop="method2(event)" ondragover="return false;" class="b"></td>
+           </tr>
+      </table>  
+      <div id="general">
+        <div id="div1" class="herkul" draggable="true" ondragstart="method1(event)" ></div>
+        <div id="div2" class="herkul" draggable="true" ondragstart="method1(event)" ></div>
+        <div id="div3" class="herkul" draggable="true" ondragstart="method1(event)" ></div>
+        <div id="div4" class="herkul" draggable="true" ondragstart="method1(event)" ></div>
+        <div id="div5" class="herkul" draggable="true" ondragstart="method1(event)" ></div>
+        <div id="div6" class="herkul" draggable="true" ondragstart="method1(event)" ></div>
+        <div id="div7" class="herkul" draggable="true" ondragstart="method1(event)" ></div>
+        <div id="div8" class="herkul" draggable="true" ondragstart="method1(event)" ></div>
+      </div>
+      
+  </body>
+</html>
